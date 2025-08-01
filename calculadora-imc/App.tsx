@@ -56,10 +56,23 @@ export default function App() {
 
       <View style={styles.controlContainer}>
         <Text style={styles.label}>Peso en kg: {peso}</Text>
-        <View style={styles.buttonGroup}>
-          <Button title='+' onPress={handleAumentarPeso} />
-          <Button title='-' onPress={handleDisminuirPeso} />
+        <View style={styles.buttonTop}>
+          <Button title='+1' onPress={handleAumentarPeso} />
         </View>
+        <View style={styles.button} >
+          <Button title='-1' onPress={handleDisminuirPeso} />
+        </View>
+      </View>
+
+      <View style={styles.controlContainer}>
+        <Text style={styles.label}>Altura en metros: {altura.toFixed(2)}</Text>
+        <View style={styles.buttonTop}>
+          <Button title='+1' onPress={handleAumentarAltura} />
+        </View>  
+        <View style={styles.button}>
+          <Button title='-1' onPress={handleDisminuirAltura} />
+        </View>
+        
       </View>
 
       <IMCDisplay result={resultado} />
@@ -90,12 +103,19 @@ const styles = StyleSheet.create({
 
   label: {
     fontSize: 20,
-    marginBottom: 10,
+    marginBottom: 20,
   },
 
-  buttonGroup:{
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
+  buttonTop:{
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    width: '50%',
+  },
+
+  button:{
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    width: '50%',
+    marginTop: 10,
   }
 });
